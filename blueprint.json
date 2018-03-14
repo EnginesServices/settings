@@ -15,8 +15,49 @@
         "level": "alpha",
         "patch": 0
       }
-    }
+    },
+    "timestamp": "2018-03-14T15:03:51+11:00"
   },
   "software": {
+    "base": {
+      "name": "settings",
+      "publisher_namespace": "EnginesSystem",
+      "type_path": "settings",
+      "deployment_type": "worker",
+      "memory": {
+        "required": 32,
+        "recommended": 32
+      },
+      "run_as_user": "settings"
+    },
+    "actionators": [
+      {
+        "name": "list_wifi_nets",
+        "label": "Available Wifi networks",
+        "return_type": "json"
+      },
+      {
+        "name": "join_wifi_net",
+        "label": "Join Wifi network",
+        "return_type": "json",
+        "enable_logging": true,
+        "variables": [
+          {
+            "name": "SSID",
+            "mandatory": true,
+            "input": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "PSK",
+            "mandatory": true,
+            "input": {
+              "type": "password"
+            }
+          }
+        ]
+      }
+    ]
   }
 }
